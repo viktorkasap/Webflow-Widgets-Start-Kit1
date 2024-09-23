@@ -1,0 +1,7 @@
+.slider1 {
+  color: var(--color1);
+
+  & div {
+    font-size: small;
+  }
+}

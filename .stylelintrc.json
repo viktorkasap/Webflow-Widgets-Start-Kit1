@@ -1,0 +1,98 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-css-modules", "stylelint-config-standard-scss"],
+  "plugins": ["stylelint-order"],
+  "rules": {
+    "custom-property-pattern": null,
+    "selector-class-pattern": null,
+    "scss/no-duplicate-mixins": null,
+    "declaration-empty-line-before": null,
+    "declaration-block-no-redundant-longhand-properties": null,
+    "alpha-value-notation": null,
+    "custom-property-empty-line-before": null,
+    "property-no-vendor-prefix": null,
+    "color-function-notation": null,
+    "length-zero-no-unit": null,
+    "selector-not-notation": null,
+    "no-descending-specificity": null,
+    "comment-empty-line-before": null,
+    "scss/at-mixin-pattern": null,
+    "scss/at-rule-no-unknown": null,
+    "value-keyword-case": null,
+    "media-feature-range-notation": null,
+    "order/order": ["custom-properties", "declarations"],
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global"]
+      }
+    ],
+    "rule-empty-line-before": [
+      "always",
+      {
+        "except": ["first-nested", "after-rule"],
+        "ignore": ["after-comment"]
+      }
+    ],
+    "order/properties-order": [
+      [
+        "position",
+        "top",
+        "left",
+        "bottom",
+        "right",
+        "display",
+        "grid-area",
+        "justify-content",
+        "align-items",
+        "order",
+        "flex",
+        "flex-grow",
+        "flex-shrink",
+        "width",
+        "max-width",
+        "min-width",
+        "height",
+        "max-height",
+        "min-height",
+        "margin",
+        "margin-top",
+        "margin-right",
+        "margin-bottom",
+        "margin-left",
+        "padding",
+        "padding-top",
+        "padding-right",
+        "padding-bottom",
+        "padding-left",
+        "border",
+        "border-radius",
+        "box-sizing",
+        "color",
+        "font-size",
+        "font-family",
+        "font-weight",
+        "letter-spacing",
+        "line-height",
+        "text-align",
+        "text-decoration",
+        "text-transform",
+        "text-overflow",
+        "white-space",
+        "opacity",
+        "background",
+        "background-color",
+        "background-size",
+        "background-position",
+        "box-shadow",
+        "filter",
+        "cursor",
+        "transition",
+        "animation",
+        "z-index"
+      ],
+      {
+        "unspecified": "bottomAlphabetical"
+      }
+    ]
+  }
+}

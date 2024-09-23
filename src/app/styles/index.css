@@ -1,0 +1,13 @@
+:root {
+  --color1: #1e3a8a;
+  --color2: #dc2626;
+}
+a {
+  color: var(--color1);
+}
+.example {
+  display: grid;
+  background: linear-gradient(to bottom, white, black);
+  transition: all 0.5s;
+  user-select: none;
+}

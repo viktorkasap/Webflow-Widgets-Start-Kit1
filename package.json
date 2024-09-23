@@ -1,0 +1,71 @@
+{
+  "name": "webflow-widgets-start-kit1",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development vite --host 0.0.0.0 --port 4444",
+    "build": "tsc && vite build",
+    "build:dev": "tsc && cross-env NODE_ENV=development vite build",
+    "pretty": "prettier --write '**/*.{css,scss,ts,tsx,json,html}'",
+    "lint:code": "eslint --fix src --ext .js,.ts",
+    "lint:type": "tsc -p tsconfig.json --noEmit",
+    "lint:style": "stylelint --fix '**/*.{css,scss,sass}'",
+    "pre-commit": "lint-staged",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "swiper": "^11.1.9"
+  },
+  "devDependencies": {
+    "@types/node": "^22.2.0",
+    "axios": "^1.7.4",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-boundaries": "^4.2.2",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^17.10.2",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-promise": "^7.1.0",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.9",
+    "postcss": "^8.4.41",
+    "postcss-color-function": "^4.1.0",
+    "postcss-import": "^16.1.0",
+    "postcss-mixins": "^10.0.1",
+    "postcss-nested": "^6.2.0",
+    "postcss-preset-env": "^10.0.1",
+    "postcss-simple-vars": "^7.0.1",
+    "prettier": "^3.3.3",
+    "stylelint": "^16.6.1",
+    "stylelint-config-css-modules": "^4.4.0",
+    "stylelint-config-standard": "^36.0.1",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "stylelint-order": "^6.0.4",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^8.1.0",
+    "vite": "^5.4.0",
+    "vite-plugin-css-injected-by-js": "^3.5.1",
+    "vite-tsconfig-paths": "^5.0.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "last 4 versions",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

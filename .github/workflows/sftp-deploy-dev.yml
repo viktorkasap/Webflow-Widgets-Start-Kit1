@@ -1,0 +1,71 @@
+name: SFTP Dev Deploy
+
+on:
+  push:
+      branches: [develop]
+
+  pull_request:
+    branches: [develop]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+
+      - name: 📦 Install pnpm
+        run: npm install -g pnpm
+
+      - name: 🚀 Install Packages
+        run: pnpm install
+
+      - name: 🔎 Lint checking ...
+        run: pnpm lint:code
+
+      - name: 🔎 Type checking ...
+        run: pnpm lint:type
+
+#      - name: 🧪 Testing ...
+#        run: pnpm test
+
+      - name: 👷 Building ...
+        run: pnpm build:dev
+
+      - name: List contents of the dist directory
+        run: ls -la ./dist/
+
+      - name: Load .env file
+        uses: xom9ikk/dotenv@v2.3.0
+        with:
+          path: ./
+
+      - name:  Read Project Name
+        run: |
+          echo "Project name is: ${{ env.VITE_PROJECT_NAME }}"
+
+      - name: Clean remote DEV directory
+        run: |
+          sshpass -p ${{ secrets.SFTP_PASSWORD }} ssh -o StrictHostKeyChecking=no ${{ secrets.SFTP_USERNAME }}@${{ secrets.SFTP_HOST }} "rm -rf ${{ secrets.SFTP_TARGET_FOLDER }}${{ env.VITE_PROJECT_NAME }}/dev/*"
+
+      - name: SFTP Deploy
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SFTP_HOST }}
+          port: 22
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          source: "dist/*"
+          target: "${{ secrets.SFTP_TARGET_FOLDER }}${{ env.VITE_PROJECT_NAME }}/dev"
+          debug: true
+          strip_components: 1
+          timeout: 60s
+          command_timeout: 20m
+
+# Ref: https://arc.net/l/quote/gqkfielg

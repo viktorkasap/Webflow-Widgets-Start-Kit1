@@ -1,0 +1,7 @@
+- [x] Add Post Css
+- [x] Add Husky + Lint-Staged
+- [x] Add linter and prettier
+- [x] Make Readme.md
+- [x] Reorder imports?
+- [-] Babel?
+- [-] Saas?
